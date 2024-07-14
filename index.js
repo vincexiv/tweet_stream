@@ -5,10 +5,14 @@ const config = require('dotenv').config
 config()
 
 function onConnect(ws){
-    console.log("Client connected on port 8080")
+    Rx.Observable.fromEvent(ws, 'message')
+    .subscribe(function(data){
+        const quake = JSON.parse(data)
+        console.log(quake)
+    })
 }
 
-const Server = new WebSocketServer({port: 8080})
+const Server = new WebSocketServer({port: '8080'})
 const connection = Rx.Observable.fromEvent(Server, 'connection')
 
 const T = new TwitterApi({
