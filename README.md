@@ -1,1 +1,1 @@
-A dockerized websocket server that streams tweets centered on particular topics and geographical regions and sends them pushes them to client
+A dockerized websocket server that streams tweets centered on particular topics and geographical regions and pushes them to client
